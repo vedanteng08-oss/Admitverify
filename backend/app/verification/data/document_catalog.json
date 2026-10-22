@@ -1,0 +1,184 @@
+{
+  "_comment": "Seed data for the dynamic configuration. Built from the 18 sample documents shared on 2026-10-22. Admins edit this through the portal; this file only seeds an empty database.",
+  "admission_year": {"label": "2026-27", "start_year": 2026, "ncl_valid_until_min": "2027-03-31"},
+  "categories": [
+    {"code": "OPEN", "name": "Open", "reserved": false},
+    {"code": "OBC", "name": "Other Backward Class", "reserved": true},
+    {"code": "SC", "name": "Scheduled Caste", "reserved": true},
+    {"code": "ST", "name": "Scheduled Tribe", "reserved": true},
+    {"code": "VJ_A", "name": "Vimukta Jati (VJ/DT-A)", "reserved": true},
+    {"code": "NT_B", "name": "Nomadic Tribe (B)", "reserved": true},
+    {"code": "NT_C", "name": "Nomadic Tribe (C)", "reserved": true},
+    {"code": "NT_D", "name": "Nomadic Tribe (D)", "reserved": true},
+    {"code": "SBC", "name": "Special Backward Class", "reserved": true},
+    {"code": "SEBC", "name": "Socially and Educationally Backward Class", "reserved": true},
+    {"code": "EWS", "name": "Economically Weaker Section", "reserved": true}
+  ],
+  "category_aliases": {
+    "OTHER BACKWARD CLASS": "OBC",
+    "OBC": "OBC",
+    "SCHEDULED CASTE": "SC",
+    "SCHEDULED TRIBE": "ST",
+    "VIMUKTA JATI": "VJ_A",
+    "VIMUKTA JATI (A)": "VJ_A",
+    "DE-NOTIFIED TRIBE": "VJ_A",
+    "NOMADIC TRIBE (B)": "NT_B",
+    "NOMADIC TRIBE(B)": "NT_B",
+    "NOMADIC TRIBE (C)": "NT_C",
+    "NOMADIC TRIBE(C)": "NT_C",
+    "NOMADIC TRIBE (D)": "NT_D",
+    "NOMADIC TRIBE(D)": "NT_D",
+    "SPECIAL BACKWARD CLASS": "SBC",
+    "SPECIAL BACKWARD CATEGORY": "SBC",
+    "SOCIALLY AND EDUCATIONALLY BACKWARD CLASS": "SEBC",
+    "SOCIALLY AND EDUCATIONALLY BACKWARD CATEGORY": "SEBC",
+    "SEBC": "SEBC",
+    "ECONOMICALLY WEAKER SECTION": "EWS",
+    "EWS": "EWS"
+  },
+  "document_types": [
+    {
+      "code": "HSC_MARKSHEET", "name": "12th Marksheet", "multi_page": false,
+      "variants": [
+        {"code": "HSC_MH", "name": "Maharashtra State Board (HSC)", "sample": "Class 12/HSC Marksheet.pdf"},
+        {"code": "CBSE", "name": "CBSE", "sample": "Class 12/CBSE.pdf"},
+        {"code": "ISC", "name": "ICSE (ISC)", "sample": null},
+        {"code": "OTHER", "name": "Other State Board", "sample": null}
+      ],
+      "fields": [
+        {"key": "name", "label": "Candidate name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "mother_name", "label": "Mother's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "father_name", "label": "Father's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "seat_no", "label": "Seat / roll number", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "exam_month_year", "label": "Exam month and year", "type": "text", "mandatory": false, "min_confidence": 0.8},
+        {"key": "subjects", "label": "Subject marks", "type": "subject_table", "mandatory": true, "min_confidence": 0.9},
+        {"key": "result", "label": "Result", "type": "text", "mandatory": true, "min_confidence": 0.85}
+      ]
+    },
+    {
+      "code": "SSC_MARKSHEET", "name": "10th Marksheet", "multi_page": false,
+      "variants": [
+        {"code": "SSC_MH", "name": "Maharashtra State Board (SSC)", "sample": "Class 10/SSC State Board.pdf"},
+        {"code": "CBSE", "name": "CBSE", "sample": "Class 10/CBSE.pdf"},
+        {"code": "ICSE", "name": "ICSE", "sample": "Class 10/ICSE.pdf"},
+        {"code": "OTHER", "name": "Other State Board", "sample": null}
+      ],
+      "fields": [
+        {"key": "name", "label": "Candidate name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "mother_name", "label": "Mother's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "dob", "label": "Date of birth (CBSE, ICSE only)", "type": "date", "mandatory": false, "min_confidence": 0.9},
+        {"key": "result", "label": "Result", "type": "text", "mandatory": true, "min_confidence": 0.85}
+      ]
+    },
+    {
+      "code": "LEAVING_CERT", "name": "Leaving / Transfer Certificate", "multi_page": true,
+      "variants": [{"code": "LC", "name": "Leaving Certificate", "sample": null}],
+      "fields": [
+        {"key": "name", "label": "Student name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "dob", "label": "Date of birth", "type": "date", "mandatory": true, "min_confidence": 0.9},
+        {"key": "father_name", "label": "Father's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "mother_name", "label": "Mother's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "caste", "label": "Caste", "type": "text", "mandatory": false, "min_confidence": 0.8}
+      ]
+    },
+    {
+      "code": "DOMICILE", "name": "Domicile / Nationality Certificate", "multi_page": false,
+      "variants": [{"code": "AGE_NAT_DOM", "name": "Certificate of Age, Nationality and Domicile", "sample": "Domicile Nationality/Domicile Nationality.pdf"}],
+      "fields": [
+        {"key": "name", "label": "Name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "dob", "label": "Date of birth", "type": "date", "mandatory": true, "min_confidence": 0.9},
+        {"key": "place_of_birth", "label": "Place of birth", "type": "text", "mandatory": false, "min_confidence": 0.7},
+        {"key": "certificate_no", "label": "Certificate (O.No.)", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "issue_date", "label": "Issue date", "type": "date", "mandatory": true, "min_confidence": 0.85}
+      ]
+    },
+    {
+      "code": "CASTE_CERT", "name": "Caste Certificate", "multi_page": false,
+      "variants": [
+        {"code": "FORM_8", "name": "OBC / VJ / NT / SBC (Form 8)", "sample": "Caste Certificate/CC_OBC.pdf"},
+        {"code": "FORM_6", "name": "SC (Form 6)", "sample": "Caste Certificate/CC_SC.pdf"},
+        {"code": "FORM_C", "name": "ST (Form C)", "sample": "Caste Certificate/CC_ST.pdf"},
+        {"code": "SEBC_ANNEX_A", "name": "SEBC (Annexure-A)", "sample": "Caste Certificate/CC_SEBC.pdf"}
+      ],
+      "fields": [
+        {"key": "name", "label": "Name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "father_name", "label": "Father's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "caste", "label": "Caste", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "caste_sr_no", "label": "Caste serial number", "type": "text", "mandatory": false, "min_confidence": 0.8},
+        {"key": "category", "label": "Category as printed", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "certificate_no", "label": "Outward / certificate number", "type": "text", "mandatory": true, "min_confidence": 0.9},
+        {"key": "issue_date", "label": "Issue date (bottom of certificate)", "type": "date", "mandatory": true, "min_confidence": 0.85},
+        {"key": "application_date", "label": "Application date", "type": "date", "mandatory": false, "min_confidence": 0.8},
+        {"key": "issuing_authority", "label": "Issuing officer", "type": "text", "mandatory": false, "min_confidence": 0.7},
+        {"key": "barcode", "label": "20-digit barcode", "type": "text", "mandatory": false, "min_confidence": 0.95}
+      ]
+    },
+    {
+      "code": "CASTE_VALIDITY", "name": "Caste Validity Certificate", "multi_page": false,
+      "variants": [
+        {"code": "BARTI", "name": "District Caste Certificate Scrutiny Committee (OBC, SC, VJ/NT, SBC)", "sample": "Caste Validity /CV_OBC.pdf"},
+        {"code": "TRTI_FORM_G", "name": "Scheduled Tribe Scrutiny Committee (Form G)", "sample": "Caste Validity /CV_ST.pdf"}
+      ],
+      "fields": [
+        {"key": "name", "label": "Name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "caste", "label": "Caste / tribe", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "category", "label": "Category as printed", "type": "text", "mandatory": false, "min_confidence": 0.8},
+        {"key": "vc_no", "label": "Validity certificate number", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "decision_date", "label": "Committee decision date", "type": "date", "mandatory": true, "min_confidence": 0.85},
+        {"key": "cc_number", "label": "Caste certificate number quoted", "type": "text", "mandatory": true, "min_confidence": 0.9},
+        {"key": "cc_date", "label": "Caste certificate date quoted", "type": "date", "mandatory": true, "min_confidence": 0.85}
+      ]
+    },
+    {
+      "code": "NCL", "name": "Non-Creamy Layer Certificate", "multi_page": false,
+      "variants": [
+        {"code": "FORM_B2", "name": "OBC / VJ / NT / SBC (Form B-2)", "sample": "Non Cream Layer (NCL)/NCL_Common.pdf"},
+        {"code": "SEBC", "name": "SEBC", "sample": "Non Cream Layer (NCL)/NCL_SEBC.pdf"}
+      ],
+      "fields": [
+        {"key": "name", "label": "Name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "father_name", "label": "Father's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "caste", "label": "Caste", "type": "text", "mandatory": false, "min_confidence": 0.8},
+        {"key": "category", "label": "Category as printed", "type": "text", "mandatory": false, "min_confidence": 0.8},
+        {"key": "certificate_no", "label": "Outward number", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "issue_date", "label": "Issue date", "type": "date", "mandatory": true, "min_confidence": 0.85},
+        {"key": "valid_upto", "label": "Valid up to", "type": "date", "mandatory": true, "min_confidence": 0.9}
+      ]
+    },
+    {
+      "code": "EWS_CERT", "name": "EWS Certificate", "multi_page": false,
+      "variants": [{"code": "ANNEX_A", "name": "Annexure-A", "sample": "EWS/EWS.pdf"}],
+      "fields": [
+        {"key": "name", "label": "Name", "type": "name", "mandatory": true, "min_confidence": 0.85},
+        {"key": "father_name", "label": "Father's name", "type": "name", "mandatory": false, "min_confidence": 0.8},
+        {"key": "certificate_no", "label": "Certificate number", "type": "text", "mandatory": true, "min_confidence": 0.85},
+        {"key": "issue_date", "label": "Issue date", "type": "date", "mandatory": true, "min_confidence": 0.85},
+        {"key": "valid_for_year", "label": "Valid for year", "type": "text", "mandatory": true, "min_confidence": 0.9},
+        {"key": "family_income", "label": "Family annual income (Rs.)", "type": "number", "mandatory": false, "min_confidence": 0.85}
+      ]
+    }
+  ],
+  "category_requirements": {
+    "_comment": "mandatory documents per category; admin must confirm against the current CET Cell brochure",
+    "OPEN":  ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE"],
+    "OBC":   ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY", "NCL"],
+    "VJ_A":  ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY", "NCL"],
+    "NT_B":  ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY", "NCL"],
+    "NT_C":  ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY", "NCL"],
+    "NT_D":  ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY", "NCL"],
+    "SBC":   ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY", "NCL"],
+    "SEBC":  ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY", "NCL"],
+    "SC":    ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY"],
+    "ST":    ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "CASTE_CERT", "CASTE_VALIDITY"],
+    "EWS":   ["SSC_MARKSHEET", "HSC_MARKSHEET", "LEAVING_CERT", "DOMICILE", "EWS_CERT"]
+  },
+  "eligibility": {
+    "_comment": "default thresholds; admin confirms from the CET Cell brochure each year",
+    "min_percent_open": 45,
+    "min_percent_reserved": 40,
+    "reserved_categories": ["OBC", "SC", "ST", "VJ_A", "NT_B", "NT_C", "NT_D", "SBC", "SEBC", "EWS"]
+  },
+  "name_match": {"match": 90, "near": 75},
+  "dob_sources": ["LEAVING_CERT", "SSC_MARKSHEET", "DOMICILE"],
+  "name_reference": "HSC_MARKSHEET"
+}

@@ -1,0 +1,6 @@
+# Verification core
+pypdf>=5.0
+Pillow>=10.0
+opencv-python-headless>=4.9
+numpy>=1.26
+# System packages (Docker image / Ubuntu): poppler-utils, tesseract-ocr, tesseract-ocr-mar

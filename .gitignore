@@ -1,0 +1,19 @@
+# Real student documents must never be committed
+samples/
+samples_raw/
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.heic
+!docs/**/*.png
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Node
+node_modules/
+.next/
